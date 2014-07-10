@@ -1,0 +1,60 @@
+zh-CN:
+  formtastic:
+    actions:
+      create: "新建%{model}"
+      update: "更新%{model}"
+      submit: '提交 %{model}'
+      cancel: '取消'
+      reset: '复位 %{model}'
+      required: '必选'
+    titles:
+      #supplier_basic_info: 基本信息 
+      company_profile:  公司分类信息
+      company_sign_in_info: 登陆分类信息
+      status_info: 状态信息
+      change_history: 更改历史纪录
+      basic_info: 基本信息
+      order_item_info: 订单项信息 
+      bom_part_info: BOM元件项信息 
+      component_category:
+        sel_category_type: 选择分类级别和父类
+        list_category_details:  填写分类详细信息
+      part_number:        
+        component_category_sel: 选择元件分类
+        supplier_sel: 选择元件供应商 
+        complementary_info: 元件补充信息
+        #basic_info: 元件基本信息
+        #group_info: 元件分组信息
+        #change_history: 元件更改历史纪录 
+      production_order:   
+        order_information: 工单订单号、产品信息和相关工具信息
+        manufacturing_information: 工单生产信息
+        appendix_information: 工单附注信息
+        status_information: 工单申请人和状态信息 
+      purchase_order:
+        supplier_info: 供货商信息
+        oem_info: 代工厂和收货信息
+    placeholders:
+      prepared_by: 记录提交人的EMAIL地址 
+      approved_by: 记录批准人的EMAIL地址
+      updated_by:  记录更改人的EMAIL地址   
+      admin_user:
+        password: "请输入密码,长度至少为6位"
+        password_confirmation: "请输入密码,长度至少为6位"
+        #tlogin: 请输入用户名或者电子邮件
+      purchase_order:
+        name:  "采购订单名称"
+        order_id:  "采购订单编号，格式：4位年+2位月+2位日-0000(预留)-4位数字(顺序编号)"
+        s_name: "供货原厂商名称"
+        sa_name: "供货代理商名称"
+        supplier_dist_list: "供货商联系人信息"
+        src_addr: "供货商地址信息"
+        dest_addr: "代工厂或收货地址"
+        oem_dist_list: "代工厂联系人信息"
+      order_item:
+        price: "精确到小数点后两位，单位元" 
+      change_history:
+        notes: 更改说明，必须填写      
+    hints:
+    labels:
+

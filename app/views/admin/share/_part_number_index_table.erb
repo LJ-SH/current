@@ -1,0 +1,20 @@
+<div id="paginator">     
+  <%= paginate(@part_numbers, :remote => true, :params => @pn_index_url_params) %> 
+</div>
+
+<div class="paginated_collection_contents">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= i18n_helper("part_number","name") %></th>
+        <th><%= i18n_helper("part_number","status") %></th>
+        <th><%= i18n_helper("part_number","supplier") %></th>
+        <th><%= i18n_helper("part_number","description") %></th>
+      </tr>
+    <thead>
+    <tbody id="part_numbers_collection">
+      <%= render :partial => @part_numbers, :locals => {:selected_id => belong_to_pn.part_number_id} %>
+    <tbody>
+  </table>
+</div>

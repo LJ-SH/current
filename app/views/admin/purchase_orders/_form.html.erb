@@ -1,0 +1,24 @@
+<%= semantic_form_for [:admin, @purchase_order], :html => {:multipart => true} do |f| %>
+
+  <%= f.semantic_errors "s_name", "sa_name" %>
+
+  <%= f.inputs :basic_info do %>  
+    <%= f.input :order_id %>
+    <%= f.input :name %>
+  <% end %>
+
+  <%= f.inputs :supplier_info do %>  
+	<%= render :partial => "supplier_sel", :locals => {:f => f} %>
+  <% end %>
+
+  <%= f.inputs :supplier_info do %>  
+    <%= f.input :oem_id, :as => :select, :include_blank => true, :collection => Oem.all %>
+    <%= f.input :dest_addr %>
+    <%= f.input :oem_dist_list %>
+  <% end %>
+
+  <%= render :partial =>"/admin/share/status_field", :locals => {:f => f} %>
+
+  <%= render :partial =>"/admin/share/action_links", :locals => {:f => f} %> 
+
+<% end %> 

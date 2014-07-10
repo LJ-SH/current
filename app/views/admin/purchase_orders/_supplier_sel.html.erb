@@ -1,0 +1,22 @@
+<%= f.input :supply_type, :as => :select, :include_blank => false, 
+    		:collection => [:supplier_itself, :supplier_agent].map{ |r| [I18n.t("supply_type.#{r}"),r]} %>
+
+<% s_display_option = (f.object.supply_type.to_s == "supplier_itself")? "":"display:none" %>
+<% sa_display_option = (f.object.supply_type.to_s != "supplier_itself")? "":"display:none" %>
+
+<%= f.input :supplier_id, :wrapper_html => {:style => "display:none"} %>  
+<li class="supplier_associated_information" style=<%= s_display_option %> >
+  <%= f.label :s_name%>
+  <%= f.autocomplete_field :s_name, autocomplete_supplier_name_admin_suppliers_path, :id_element => "#purchase_order_supplier_id", "min-length" => 1, "no-match-label" => I18n.t('ui_autocomplete.no_match_label'),
+      :placeholder => I18n.t("formtastic.placeholders.purchase_order.s_name")  %>
+</li>
+	
+<%= f.input :supply_agent_id, :wrapper_html => {:style => "display:none"} %> 	
+<li class="supply_agent_associated_information" style=<%= sa_display_option %> >
+  <%= f.label :sa_name %>
+  <%= f.autocomplete_field :sa_name, autocomplete_supply_agent_name_admin_supply_agents_path, :id_element => "#purchase_order_supply_agent_id", "min-length" => 1, "no-match-label" => I18n.t('ui_autocomplete.no_match_label'),
+      :placeholder => I18n.t("formtastic.placeholders.purchase_order.sa_name") %>
+</li>
+   
+<%= f.input :supplier_dist_list %>
+<%= f.input :src_addr %>

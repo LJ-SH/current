@@ -1,0 +1,12 @@
+<%= form_for @search, :url => collection_path, :as => :q, :builder => ActiveAdmin::Filters::FormBuilder, :html => {method: :get, :class => "filter_form part_number_filter_form"} do |f| %>
+
+  <%=
+    render :partial => "component_category_common", :locals => {:f => f}
+    f.filter :approved_by, :as => :select, :collection => Proc.new{PartNumber.uniq.pluck(:approved_by).reject(&:blank?)}
+    f.filter :created_at, :as => :date_range
+    f.form_buffers.last 
+  %>
+
+  <%= render :partial =>"/admin/share/search_action_links", :locals => {:f => f} %>
+
+<% end %>  

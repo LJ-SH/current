@@ -1,0 +1,12 @@
+<%= form_for search, :url => admin_part_numbers_path(:pag => 5), :as => :q, :builder => ActiveAdmin::Filters::FormBuilder, :html => {method: :get, :class => "filter_form part_number_search_filter_form", :remote => true} do |f| %>
+
+  <%=
+    render :partial => "admin/part_numbers/component_category_common", :locals => {:f => f} 
+  %>
+
+  <%= content_tag :div, :class => "buttons" do %>
+    <%=  f.submit I18n.t('active_admin.filter'), :class => "filter_part_number" %>
+    <%=  link_to(I18n.t('active_admin.clear_filters'), "#", :class => "clear_filters_btn") %>
+    <%=  hidden_field_tags_for(params, :except => [:q, :page]) %>
+  <% end %>
+<% end %> 

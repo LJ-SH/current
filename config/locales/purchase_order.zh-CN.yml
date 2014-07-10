@@ -1,0 +1,4 @@
+zh-CN:
+  active_admin:
+    actions:
+      manage_order_items: 管理采购元件项

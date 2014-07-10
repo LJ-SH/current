@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <% unless selected_id == part_number.id %>
+      <input type="radio" name="part_number_index_table_item" 
+             value="<%= part_number.id %>" class="part_number_index_table_item"/>
+    <% else %>
+      <input type="radio" name="part_number_index_table_item" checked='checked'
+             value="<%= part_number.id %>" class="part_number_index_table_item"/>    
+    <% end %>
+  </td>
+  <td style="display:none"><%= part_number.code %></td>
+  <td style="display:none"><%= part_number.vendor_code %></td>
+  <td><%= part_number.name %></td>
+  <td style="min-width: 40px"><%= i18n_status_helper(part_number.status) %></td>
+  <td><%= part_number.supplier.name %></td>
+  <td><%= part_number.description %></td>
+  <td></td>
+</tr>

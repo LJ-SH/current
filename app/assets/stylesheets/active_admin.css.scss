@@ -1,0 +1,117 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   body.active_admin {
+//      .status_tag { background: #6090DB; }
+//   }
+//
+// Notice that Active Admin CSS rules are nested within a
+// 'body.active_admin' selector to prevent conflicts with
+// other pages in the app. It is best to wrap your changes in a 
+// namespace so they are properly recognized. You have options
+// if you e.g. want different styles for different namespaces:
+//
+// .active_admin       applies to any Active Admin namespace
+// .admin_namespace    applies to the admin namespace (eg: /admin)
+// .other_namespace    applies to a custom namespace named other (eg: /other)
+body.active_admin form fieldset.child_list {
+	margin-bottom: 0px;
+}
+body.active_admin form fieldset.new_child_list {
+	margin-bottom: 0px;
+}
+//th.set_min_column_width { min-width: 50px;}
+div#sidebar th {min-width: 30px;}
+div#sidebar td {word-wrap: break-word;}
+div#sidebar table {table-layout: fixed}
+body.active_admin form.filter_form .filter_form_field.filter_date_range input.datepicker[type=text] {
+// width: 100px;
+   width: 70px;
+}
+body.active_admin table.compare_table {
+  width: 60%;
+  margin: 5px auto;
+}
+table td.center_td_40p {
+  text-align: center;
+  width: 40%; 
+  padding: 10px 0;
+}
+table td.center_td_10p {
+  text-align: center;
+  width: 10%;
+  padding: 10px 0; 
+}
+table td.highlighted {
+  background: #efefef;
+}
+td.yellowgreen {
+  background: yellowgreen;
+}
+
+body.active_admin form input.input_with_action_link {
+  width: 60%;
+}
+
+body.active_admin form input[disabled='disabled'] {
+  background-color: rgba(211, 211, 211, 0.64);
+}
+
+nav.pagination {
+  margin-bottom: 5px;
+}
+
+body.active_admin form.filter_form a.part_number_clear_filters_btn {
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.0em;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 12px;
+  margin-right: 3px;
+  padding: 7px 16px 6px;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  background: white;
+  background: -webkit-linear-gradient(-90deg, white, #e7e7e7);
+  background: -moz-linear-gradient(-90deg, white, #e7e7e7);
+  background: linear, -90deg, white, #e7e7e7;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE7E7E7');
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE7E7E7');
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset;
+  border: solid 1px #c7c7c7;
+  border-color: #c7c7c7;
+  border-top-color: lightgrey;
+  border-right-color: #c7c7c7;
+  border-bottom-color: #c2c2c2;
+  border-left-color: #c7c7c7;
+  text-shadow: white 0 1px 0;
+  color: #5e6469;
+}
+
+// for autocomplete purpose
+body.active_admin span.ui-helper-hidden-accessible {
+    position: absolute;
+    left: -99999999px;
+}
+
+body.active_admin li.ui-menu-item a:hover {
+  background-color: yellow;
+  font-style: italic;
+  font-weight: bold;
+}

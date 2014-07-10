@@ -1,0 +1,21 @@
+$('#paginator').html("<%= escape_javascript(paginate(@part_numbers, :remote => true).to_s) %>");
+
+$('#part_numbers_collection').empty();
+<% if @part_numbers.blank? %>
+  $('#part_numbers_collection').html("<%= escape_javascript render(:partial => '/admin/share/index_empty_hint') %>");
+<% else %>
+  $('#part_numbers_collection').html("<%= escape_javascript render(:partial => @part_numbers, :locals => {:selected_id => ''}) %>");
+<% end %>
+
+$('form.part_number_search_filter_form select').each(function() {
+    $(this).attr("disabled", false);
+});
+$('form.part_number_search_filter_form input').each(function() {
+    $(this).attr("disabled", false);
+});
+
+$('input.part_number_index_table_item[type=radio]').each(function() {
+  if ($(this).val() == $('#order_item_part_number_id').val()) {
+    $(this).attr('checked','checked');
+  } 
+});

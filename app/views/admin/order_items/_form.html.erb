@@ -1,0 +1,30 @@
+<%
+  @pn_index_url_params = {:controller => 'admin/part_numbers', :action => 'index', :pag => 5} 
+  if @order_item.part_number.nil?
+    @part_numbers = PartNumber.order("id asc").page(1).per(5)
+  else
+    @part_number_collection = @order_item.part_number.component_category.part_numbers
+    @page = @part_number_collection.index(@order_item.part_number)/5+1
+    @part_numbers = @part_number_collection.page(@page).per(5)
+    @pn_index_url_params.merge!(:q => {})
+    @order_item.part_number.component_category.path_ids.each_with_index {|id, i| 
+      @pn_index_url_params[:q].merge!(:"component_category_level#{i}_eq" => id)
+    }
+  end
+%>
+
+<%= render :partial =>"/admin/share/part_number_index_table", :locals => {:belong_to_pn => @order_item} %> 
+
+<%= semantic_form_for [:admin, @purchase_order, @order_item], :html => {:class => 'part_number_check'} do |f| %>
+  <%= f.inputs :order_item_info do %>  
+    <%= f.input :part_number_id, :as => :string,
+    		    :wrapper_html => {:style => "display:block"},
+    		    :input_html => {:class => "hidden_part_number_id"} %>
+    <%= f.input :part_number_code %>
+    <%= f.input :part_number_vendor_code %>
+    <%= f.input :volume %>
+    <%= f.input :price %>
+    <%= f.input :comment %>
+  <% end %>
+  <%= render :partial =>"/admin/share/action_links", :locals => {:f => f} %> 
+<% end %> 

@@ -1,0 +1,15 @@
+<%= form_for @search, :url => collection_path, :as => :q, :builder => ActiveAdmin::Filters::FormBuilder, :html => {method: :get, :class => :filter_form} do |f| %>
+  <%= f.filter :name, :as => :string 
+    f.form_buffers.last %>
+
+  <%= f.input :company_name, :as => :select,
+             :collection => corporate_collection.collect(&:company_profile).map{|c| [c.company_name, c.companyable_id]}
+  %>
+
+  <%= f.input :company_desc, :as => :string %>
+  <%= f.input :contact, :as => :string %>
+  <%= f.input :email, :as => :string %>
+
+  <%= render :partial =>"/admin/share/search_action_links", :locals => {:f => f} %>
+
+<% end %> 
