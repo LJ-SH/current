@@ -18,7 +18,7 @@ ActiveAdmin.register Product do
     actions  
   end
 
-  filter :name, :as => :select, :collection => Product.all
+  #filter :name, :as => :select, :collection => Product.all
   filter :pcb_ver, :as => :select, :collection => Product.uniq.pluck(:pcb_ver).reject(&:blank?)
   filter :bom_appendix
   filter :updated_by, :as => :select, :collection => Product.uniq.pluck(:updated_by).reject(&:blank?)
